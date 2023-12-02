@@ -1,6 +1,6 @@
 package oliver.DrinkIdears
 
-import jdk.jshell.SourceCodeAnalysis.Suggestion
+
 
 class Suggestions(){
 fun drinksuggestion(suggestion: String){
