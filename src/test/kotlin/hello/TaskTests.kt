@@ -12,7 +12,7 @@ import org.springframework.boot.test.web.client.getForObject
 class TaskTests(@Autowired private val restTemplate: TestRestTemplate) {
 
 	@Test
-	fun findAll() {
+	fun findOne() {
 		assertEquals("Max", restTemplate.getForObject<String>("/task/getTask"))
 	}
 }
