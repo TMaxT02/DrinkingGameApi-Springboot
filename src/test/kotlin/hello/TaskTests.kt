@@ -9,7 +9,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.boot.test.web.client.getForObject
 
 @SpringBootTest(webEnvironment= WebEnvironment.RANDOM_PORT)
-class ApplicationTests(@Autowired private val restTemplate: TestRestTemplate) {
+class TaskTests(@Autowired private val restTemplate: TestRestTemplate) {
 
 	@Test
 	fun findAll() {
