@@ -1,34 +1,39 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
-    kotlin("jvm") version "1.9.0"
-    application
+    val kotlinVersion = "1.8.0"
+    id("org.springframework.boot") version "3.0.1"
+    id("io.spring.dependency-management") version "1.1.0"
+    kotlin("jvm") version kotlinVersion
+    kotlin("plugin.spring") version kotlinVersion
+    kotlin("plugin.jpa") version kotlinVersion
 }
 
-group = "de.maxt18"
-version = "1.0-SNAPSHOT"
+group = "hello"
+version = "1.0.0-SNAPSHOT"
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web:2.5.4")  // Spring Web
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa:2.5.4")  // Spring Data JPA with Hibernate
-    testImplementation("org.springframework.boot:spring-boot-starter-test:2.5.4")
-    implementation("com.h2database:h2:1.4.200")  // H2 Database
-    implementation("org.liquibase:liquibase-core:4.19.1")
-    testImplementation(kotlin("test"))
-    testImplementation("junit:junit:4.13.2")
-    implementation("io.r2dbc:r2dbc-spi:1.0.0.RELEASE")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("com.h2database:h2")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
-tasks.test {
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "17"
+        freeCompilerArgs += "-Xjsr305=strict"
+    }
+}
+
+tasks.withType<Test> {
     useJUnitPlatform()
-}
-
-kotlin {
-    jvmToolchain(8)
-}
-
-application {
-    mainClass.set("MainKt")
 }
