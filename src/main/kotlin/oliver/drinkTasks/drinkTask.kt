@@ -12,5 +12,5 @@ fun main() {
         val randomIndex = (0 until drinkTasks.size).random()
 
         val randomValue = drinkTasks[randomIndex]
-        println("$randomValue")
+        println(randomValue)
 }
