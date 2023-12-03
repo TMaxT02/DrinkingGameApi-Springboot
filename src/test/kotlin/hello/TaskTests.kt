@@ -13,6 +13,6 @@ class TaskTests(@Autowired private val restTemplate: TestRestTemplate) {
 
 	@Test
 	fun findAll() {
-		assertEquals("Max", restTemplate.getForObject<String>("/test/function"))
+		assertEquals("Max", restTemplate.getForObject<String>("/task/getTask"))
 	}
 }

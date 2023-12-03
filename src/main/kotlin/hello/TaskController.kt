@@ -1,5 +1,6 @@
 package hello
 
+import hello.oliver.TaskLogic
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -10,6 +11,6 @@ class TaskController() {
 
 	@GetMapping("/getTask")
 	fun getTask():String{
-		return "oliveraufgabe"
+		return TaskLogic().getTask()
 	}
 }
