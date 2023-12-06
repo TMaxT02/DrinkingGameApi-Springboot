@@ -18,11 +18,15 @@ class SuggestionTest(@Autowired private val restTemplate: TestRestTemplate,
 
 	@Test
 	fun findAll() {
+		val url: String = "/suggestion/getAllSuggestions"
 		val suggestion = SuggestionEntity(1, 123, "Test suggestion")
 		suggestionService.saveSuggestion(suggestion)
 
-		val result = restTemplate.getForObject("/api/suggestions/getAll", SuggestionEntity::class.java)
+		val responseEntity = restTemplate.getForEntity("/suggestion/getAllSuggestions", List::class.java)
+		val result = responseEntity.body as List<SuggestionEntity>
 
-		assertEquals(mutableListOf(3), result)
+
+		assertEquals("Test suggestion", result)
+
 	}
 }
