@@ -1,4 +1,4 @@
-package hello.oliver.classen
+package hello.classen
 
 import jakarta.persistence.*
 

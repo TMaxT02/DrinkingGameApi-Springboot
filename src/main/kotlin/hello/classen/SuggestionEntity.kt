@@ -1,4 +1,4 @@
-package hello.oliver.classen
+package hello.classen
 
 import jakarta.persistence.*
 
@@ -9,12 +9,12 @@ class SuggestionEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "suggestion_suggestionId")
-    var suggestionId: Long,
+    var suggestionId: Int =0,
 
     @Column(name = "suggestions_userId")
-    var userId:Long,
+    var userId:Int= 0,
 
     @Column(name = "suggestion_suggestion")
-    var suggestion: String,
+    var suggestion: String ="",
 ) {
 }
