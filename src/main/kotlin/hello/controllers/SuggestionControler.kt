@@ -24,7 +24,7 @@ class SuggestionControler @Autowired constructor(
 ) {
 
 
-    @GetMapping("/getSuggestionById")
+    @GetMapping("/getSuggestionById/{id}")
     fun getSuggestionById(@PathVariable id: Int): ResponseEntity<SuggestionEntity> {
         return ResponseEntity(suggestionService.getSuggestionById(id), HttpStatus.OK)
     }
@@ -35,7 +35,7 @@ class SuggestionControler @Autowired constructor(
         return ResponseEntity(suggestionService.getAllSuggestions(), HttpStatus.OK)
     }
 
-    @GetMapping("/saveSuggestion()")
+    @GetMapping("/creatSuggestion/{suggestion}")
     fun creatSuggestion(@PathVariable suggestion: String) {
         return
         // return ResponseEntity(suggestionService.saveSuggestion(), HttpStatus.OK)

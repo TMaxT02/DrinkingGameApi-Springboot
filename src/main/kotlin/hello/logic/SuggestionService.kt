@@ -12,8 +12,8 @@ class SuggestionService @Autowired constructor(private val suggestionRepository:
         return suggestionRepository.findAll()
     }
 
-    fun getSuggestionById(suggestionId: Int): SuggestionEntity? {
-        return suggestionRepository.findById(suggestionId).orElse(null)
+    fun getSuggestionById(suggestionId: Int): SuggestionEntity {
+        return suggestionRepository.findById(suggestionId).get()
     }
 
     fun saveSuggestion(suggestion: SuggestionEntity): SuggestionEntity {
